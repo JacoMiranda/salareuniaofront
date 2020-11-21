@@ -1,4 +1,5 @@
-# ClientRoom
+# Client - Room
+### Projeto desenvolvido durante BootCamp Java Developer da Digital innovation One durante, acesse <https://web.digitalinnovation.one> . 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.2.
 
@@ -25,3 +26,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Outras dependências
+ - bootstrap@4.5.0 e jquery@3.5.1
+ - projeto backend em Java no link https://github.com/JacoMiranda/salareuniaobackend.git

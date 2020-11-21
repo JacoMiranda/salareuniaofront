@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Room} from '../room';
-import { ActivatedRoute, Router} from '@angular/router';
+import { Room } from '../room';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RoomService } from '../room.service';
 
 @Component({
@@ -12,35 +12,36 @@ export class UpdateRoomComponent implements OnInit {
 
   id: number;
   room: Room;
-  submittd = false;
+  submitted = false;
 
-  constructor(private route: ActivatedRoute, private router: Router,
-    private RoomService: RoomService) { }
 
-  ngOnInit(): void {
-    this.room =  new Room();
+  constructor(private route: ActivatedRoute,private router: Router,
+    private roomService: RoomService) { }
+
+  ngOnInit() {
+    this.room = new Room();
+
     this.id = this.route.snapshot.params['id'];
-    this.RoomService.getRoom(this.id)
-    .subscribe(data =>{
-      console.log(data);
-      this.room = data;
-    },
-    error => console.log(error)
-    );
-  }
-  updateRoom(){
-    this.RoomService.updateRoom(this.id, this.room)
-    .subscribe(data => console.log(data), error => console.log(error));
-     this.room = new Room();
-     this.gotoList();
+    
+    this.roomService.getRoom(this.id)
+      .subscribe(data => {
+        console.log(data)
+        this.room = data;
+      }, error => console.log(error));
   }
 
-  onSubmit(){
-    this.updateRoom();
+  updateRoom() {
+    this.roomService.updateRoom(this.id, this.room)
+      .subscribe(data => console.log(data), error => console.log(error));
+    this.room = new Room();
+    this.gotoList();
   }
 
-  gotoList(){
-    this.router.navigate(['/rooms'])
+  onSubmit() {
+    this.updateRoom();    
   }
 
+  gotoList() {
+    this.router.navigate(['/rooms']);
+  }
 }
